@@ -22,10 +22,6 @@ async def ping(ctx):
 async def on_voice_state_update(before, after):
     print("ボイスチャンネルで変化がありました")
 
-if((before.voice.self_mute is not after.voice.self_mute) or (before.voice.self_deaf is not after.voice.self_deaf)):
-    print("ボイスチャンネルでミュート設定の変更がありました")
-return
-
 if(before.voice_channel is None):
     pretime_dict[after.name] = datetime.datetime.now()
 elif(after.voice_channel is None):
