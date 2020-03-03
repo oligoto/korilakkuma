@@ -11,10 +11,9 @@ async def on_voice_state_update(member, before, after):
     alert_channel = client.get_channel(684293450954178585)
     if before.channel is None:
 
-        msg = f'{member.name} さんがお勉強をはじめました。がんばって！'
-        await alert_channel.send(msg)
-
         dt1 = datetime.datetime.now()
+        msg = f'{member.name} さんがお勉強をはじめました。がんばって！'
+        await alert_channel.send(msg, dt1)
 
     elif after.channel is None:
         dt2 = datetime.datetime.now()
