@@ -1,9 +1,13 @@
+# インストールした discord.py を読み込む
 import discord
-import datetime
 
+# 自分のBotのアクセストークンに置き換えてください
+TOKEN = 'Njg0MjgwNDM3NzkwNjA1MzEy.Xl3z3w.9ASS_30AppRtczHLbwOokSLKOUc'
+
+# 接続に必要なオブジェクトを生成
 client = discord.Client()
-pretime_dict = {}
 
+# 起動時に動作する処理
 @client.event
 async def on_voice_state_update(before, after):
   print("ボイスチャンネルで変化がありました")
@@ -20,8 +24,9 @@ async def on_voice_state_update(before, after):
 
     reply_channel_name = "general"
     reply_channel = [channel for channel in before.server.channels if channel.name == reply_channel_name][0]
-    reply_text = after.name + "　さんが　" + str(duration_time_adjust) +"秒 勉強しました！おつかれさまでした！"
+    reply_text = after.name + "　が　"+ before.voice_channel.name + "　から抜けました。　通話時間：" + str(duration_time_adjust) +"秒"
 
     await client.send_message(reply_channel ,reply_text)
 
-client.run("Njg0MjgwNDM3NzkwNjA1MzEy.Xl3z3w.9ASS_30AppRtczHLbwOokSLKOUc")#ボットのトークン
+# Botの起動とDiscordサーバーへの接続
+client.run(TOKEN)
