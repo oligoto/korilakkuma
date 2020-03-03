@@ -7,10 +7,10 @@ client = discord.Client()
 
 @client.event
 async def on_voice_state_update(before, after):
-nowtime = datetime.datetime.utcnow()
-nowtime = nowtime + datetime.timedelta(hours=9)
-nowtime = nowtime.strftime("%m/%d-%H:%M")
-vcchannel = client.get_channel('time')
+    nowtime = datetime.datetime.utcnow()
+    nowtime = nowtime + datetime.timedelta(hours=9)
+    nowtime = nowtime.strftime("%m/%d-%H:%M")
+    vcchannel = client.get_channel('time')
 
 if(before.voice_channel is None):
     jointext=nowtime + "に　" + after.name + "　が　" + after.voice_channel.name + " に参加しました。"
