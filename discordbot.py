@@ -9,12 +9,14 @@ client = discord.Client()
 async def on_voice_state_update(member, before, after):
     alert_channel = client.get_channel(684293450954178585)
     if before.channel is None:
-        msg = f'{member.name}さんがおべんきょうを始めました。がんばって！！'
-        await alert_channel.send(msg)
         dt1 = datetime.now()
         await alert_channel.send(dt1)
+        msg = f'{member.name}さんがおべんきょうを始めました。がんばって！！！'
+        await alert_channel.send(msg)
     elif after.channel is None:
-        msg = f'{member.name}さんお疲れさまでした！'
+        dt2 = datetime.now()
+        await alert_channel.send(dt2)
+        msg = f'{member.name}さんお疲れさまでした！！'
         await alert_channel.send(msg)
 
 client.run(token)
