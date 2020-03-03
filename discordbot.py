@@ -1,13 +1,9 @@
-# インストールした discord.py を読み込む
 import discord
 
-# 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'Njg0MjgwNDM3NzkwNjA1MzEy.Xl3z3w.9ASS_30AppRtczHLbwOokSLKOUc'
 
-# 接続に必要なオブジェクトを生成
 client = discord.Client()
 
-# 起動時に動作する処理
 @client.event
 async def on_voice_state_update(before, after):
   print("ボイスチャンネルで変化がありました")
@@ -28,5 +24,4 @@ async def on_voice_state_update(before, after):
 
     await client.send_message(reply_channel ,reply_text)
 
-# Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
