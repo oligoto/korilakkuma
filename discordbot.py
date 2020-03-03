@@ -14,13 +14,13 @@ async def on_voice_state_update(member, before, after):
         msg = f'{member.name} さんがお勉強をはじめました。がんばって！'
         await alert_channel.send(msg)
 
-        pretime_dict[after.name] = datetime.datetime.now()
+        dt1 = datetime.datetime.now()
 
     elif after.channel is None:
-        duration_time = pretime_dict[before.name] - datetime.datetime.now()
+        duration_time = datetime.datetime.now() + datetime.timedelta(-dt1)
         duration_time_adjust = int(duration_time.total_seconds()) * -1
 
-        msg = f'{member.name} さんが {duration_time_adjust} 秒お勉強しました。お疲れ様でした！'
+        msg = f'{member.name} さんが {duration_time_adjust} 秒 お勉強しました。お疲れさまでした！'
         await alert_channel.send(msg)
 
 client.run(token)
