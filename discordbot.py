@@ -15,7 +15,7 @@ async def on_voice_state_update(member, before, after):
         await alert_channel.send(msg)
     elif after.channel is None:
         dt2 = datetime.now()
-        delta = d2 -　d1
+        delta = d2 -d1
         sec = delta.total_seconds()
         await alert_channel.send(sec)
 
