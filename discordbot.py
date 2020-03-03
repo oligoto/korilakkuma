@@ -23,9 +23,9 @@ elif(after.voice_channel is None):
     duration_time_adjust = int(duration_time.total_seconds()) * -1
 
 reply_channel_name = "general"
-    reply_channel = [channel for channel in before.server.channels if channel.name == reply_channel_name][0]
+reply_channel = [channel for channel in before.server.channels if channel.name == reply_channel_name][0]
     reply_text = after.name + "　が　" + before.voice_channel.name + "　から抜けました。　通話時間：" + str(duration_time_adjust) + "秒"
 
-    await client.send_message(reply_channel ,reply_text)
+    await client.send_message(reply_channel , reply_text)
 
-client.run("token") #ボットのトークン
+client.run("token")  #ボットのトークン
