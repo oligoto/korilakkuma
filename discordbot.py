@@ -17,10 +17,10 @@ async def on_voice_state_update(member, before, after):
         dt1 = datetime.datetime.now()
 
     elif after.channel is None:
-        duration_time = datetime.datetime.now() + datetime.timedelta(-dt1)
-        duration_time_adjust = int(duration_time.total_seconds()) * -1
+        dt2 = datetime.datetime.now()
+        delta = dt2 - dt1
 
-        msg = f'{member.name} さんが {duration_time_adjust} 秒 お勉強しました。お疲れさまでした！'
+        msg = f'{member.name} さんが {delta} 秒 お勉強しました。お疲れさまでした！'
         await alert_channel.send(msg)
 
 client.run(token)
