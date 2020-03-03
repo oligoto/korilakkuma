@@ -19,7 +19,7 @@ async def on_voice_state_update(member, before, after):
         dt2 = datetime.datetime.now()
         delta = dt2 - dt1
 
-        msg = f'{member.name} さんが {delta} 秒 お勉強しました。お疲れさまでした！'
+        msg = f'{member.name} さんが {delta.total_seconds()} 秒 お勉強しました。お疲れさまでした！'
         await alert_channel.send(msg)
 
 client.run(token)
